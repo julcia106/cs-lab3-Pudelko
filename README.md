@@ -1,10 +1,10 @@
 # Well formed class - Pudelko
 
-Cel, zakres
-well-formed type, implementacje kluczowych interfejsów (IEquatable, IFormatable, IEnumerable), przeciążenia operatorów (==, !=, jawnej i niejawnej konwersji, indekser), metody rozszerzające, definiowanie porządku sortowania (delegat Comparison), testy jednostkowe
-orientacyjny czas realizacji - przy sprawnym programowaniu ok. 60 minut
-orientacyjna ilość kodu - ok. 200 linii dla implementacji klasy, ok. 200 dla implementacji testów jednostkowych
-Sformułowanie problemu
+## Cel, zakres
+- well-formed type, implementacje kluczowych interfejsów (IEquatable, IFormatable, IEnumerable), przeciążenia operatorów (==, !=, jawnej i niejawnej konwersji, indekser), metody rozszerzające, definiowanie porządku sortowania (delegat Comparison), testy jednostkowe
+
+------------
+
 Współpracujesz w rozwoju systemu wspomagającego obsługę Firmy Kurierskiej i optymalizującego załadunek. Twoim zadaniem jest opracować klasę Pudelko.
 
 Pudełko to prostopadłościan o zadanych długościach krawędzi (umownie: długość, wysokość, szerokość). Wymiary te mogą być podawane w milimetrach, centymetrach bądź metrach - jako wartości rzeczywiste. Cyfry poza zakresem dla określonej jednostki są odcinane (np. dla 2.54637 m przyjmujemy 2.546 m czyli 254.6 cm, czyli 2546 mm)!
@@ -13,33 +13,35 @@ Przyjmujemy, że maksymalny pojedynczy wymiar pudełka nie przekracza 10 metrów
 
 Twoim zadaniem jest zaimplementowanie klasy Pudelko spełniającej podane poniżej warunki:
 
-Obiekty klasy Pudelko są niezmiennicze.
+- Obiekty klasy Pudelko są niezmiennicze.
 
-Domyślnym pudełkiem jest prostopadłościan o krawędziach a, b, c o wymiarach odpowiednio 10 cm × 10 cm × 10 cm.
+- Domyślnym pudełkiem jest prostopadłościan o krawędziach a, b, c o wymiarach odpowiednio 10 cm × 10 cm × 10 cm.
 
-Klasa jest zapieczętowana (nie można z niej dziedziczyć).
+- Klasa jest zapieczętowana (nie można z niej dziedziczyć).
 
 Sugestia: w aplikacji, zamiast używać długiej nazwy Pudelko, możesz zastosować alias (np. P wpisując using P = MyLib.Pudelko;)
 
 ⚠️ Wykorzystaj testy jednostkowe (MS Test v2) dołączone do zadania (testujące tylko część funkcjonalności). Dopisz własne metody testujące, dodaj własne przypadki testowe, modyfikuj kod testów - jeśli uznasz to za stosowne.
 
-Wytyczne
-Ograniczenia wymiarów
+## Wytyczne
+------------
+1. Ograniczenia wymiarów
 
-wymiary pudełka muszą być dodatnie
-wymiary pudełka nie mogą przekroczyć 10 m
-Tworzenie obiektu Pudelko
++ wymiary pudełka muszą być dodatnie
++ wymiary pudełka nie mogą przekroczyć 10 m
 
-Domyślnym pudełkiem jest prostopadłościan o wymiarach 10 cm × 10 cm × 10 cm.
+2. Tworzenie obiektu Pudelko
 
-Tworzenie obiektu odbywa się na podstawie podania listy wartości długości boków (a, b, c) oraz jednostki miary. Wszystkie parametry konstruktora są opcjonalne.
++ Domyślnym pudełkiem jest prostopadłościan o wymiarach 10 cm × 10 cm × 10 cm.
 
-Typ reprezentujący jednostki miary to enum o nazwie UnitOfMeasure definiujący składowe: milimeter, centimeter, meter.
-Jeśli podano mniej niż 3 wartości liczbowe, pozostałe przyjmuje się jako o wartości 10 cm, ale dla ustalonej jednostki miary.
-Jeśli nie podano jednostki miary, to przyjmujemy, że wymiary podawane są w metrach.
-W przypadku próby utworzenia pudełka z którymkolwiek z parametrów niedodatnim, zgłaszany jest wyjątek ArgumentOutOfRangeException.
++ Tworzenie obiektu odbywa się na podstawie podania listy wartości długości boków (a, b, c) oraz jednostki miary. Wszystkie parametry konstruktora są opcjonalne.
 
-W przypadku próby utworzenia pudełka z którymkolwiek z parametrów większym niż 10 metrów, zgłaszany jest wyjątek ArgumentOutOfRangeException.
+  + Typ reprezentujący jednostki miary to enum o nazwie UnitOfMeasure definiujący składowe: milimeter, centimeter, meter.
+  +Jeśli podano mniej niż 3 wartości liczbowe, pozostałe przyjmuje się jako o wartości 10 cm, ale dla ustalonej jednostki miary.
+  +Jeśli nie podano jednostki miary, to przyjmujemy, że wymiary podawane są w metrach.
++ W przypadku próby utworzenia pudełka z którymkolwiek z parametrów niedodatnim, zgłaszany jest wyjątek ArgumentOutOfRangeException.
+
++ W przypadku próby utworzenia pudełka z którymkolwiek z parametrów większym niż 10 metrów, zgłaszany jest wyjątek ArgumentOutOfRangeException.
 
 Zaimplementuj properties o nazwach A, B i C zwracające wymiary pudełka w metrach (z dokładnością do 3 miejsc po przecinku).
 
